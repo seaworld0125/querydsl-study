@@ -45,6 +45,10 @@ dependencies {
 	//querydsl 추가
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+
+	// 쿼리 파라미터 로그 남겨주는 외부 라이브러리
+	// 개발 단계에서는 편하게 사용하고, 운영 단계에서는 성능 테스트가 꼭 필요하다
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter'
 }
 
 tasks.named('test') {
@@ -62,7 +66,7 @@ sourceSets {
 	main.java.srcDir querydslDir
 }
 compileQuerydsl{
-	options.annotationProcessorPath = configurations.querydsl
+	options.annotationProcessorPath = configurations.querydsl // 어노테이션 프로세서가 Q파일을 생성한다
 }
 configurations {
 	compileOnly {
@@ -71,3 +75,4 @@ configurations {
 	querydsl.extendsFrom compileClasspath
 }
 //querydsl 추가 끝
+// 버전마다 위 세팅이 달라질 수 있다. 삽질을 좀 해서 수정하는 수 밖에 없다

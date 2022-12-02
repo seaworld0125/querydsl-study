@@ -7,6 +7,9 @@ build/
 
 gradle-app.setting
 
+# 강의자료
+*.pdf
+
 ### STS ###
 .apt_generated
 .classpath
