@@ -45,10 +45,6 @@ dependencies {
 	//querydsl 추가
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
-
-	// 쿼리 파라미터 로그 남겨주는 외부 라이브러리
-	// 개발 단계에서는 편하게 사용하고, 운영 단계에서는 성능 테스트가 꼭 필요하다
-	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter'
 }
 
 tasks.named('test') {
